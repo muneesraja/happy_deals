@@ -1,0 +1,25 @@
+.container {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  color: var(--theme-white);
+}
+
+.form {
+  margin: 0 auto;
+  max-width: 60%;
+  min-width: 60%;
+  display: inline-block;
+}
+
+.btn-outline-danger {
+  color: var(--theme-purple);
+  border: solid 1px var(--theme-purple);
+  padding: 0.7rem 3rem;
+  border-radius: 15px;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--theme-purple);
+  color: var(--theme-white);
+}

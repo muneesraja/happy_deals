@@ -1,0 +1,148 @@
+<app-admin-nav></app-admin-nav>
+<h2 class="text-center text-white">{{ headline }}</h2>
+<div class="container">
+  <h3 class="text-center">{{ queryProduct ? "Edit Store" : "Add Store" }}</h3>
+  <form
+    #userForm="ngForm"
+    (ngSubmit)="onSubmit(userForm)"
+    class="form text-center"
+  >
+    <div class="form-group">
+      <label for="name">Product Name</label>
+      <input
+        [(ngModel)]="product.name"
+        name="name"
+        type="name"
+        class="form-control"
+        id="name"
+        placeholder="name"
+        #name="ngModel"
+        minlength="1"
+        [class]="{
+          'is-invalid': name.errors && name.touched
+        }"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        [(ngModel)]="product.price"
+        name="price"
+        type="number"
+        class="form-control"
+        id="price"
+        placeholder="Price"
+        #price="ngModel"
+        [class]="{
+          'is-invalid': price.errors && price.touched
+        }"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="special_price">Special Price</label>
+      <input
+        [(ngModel)]="product.special_price"
+        name="special_price"
+        type="number"
+        class="form-control"
+        id="special_price"
+        placeholder="Special Price"
+        #special_price="ngModel"
+        [class]="{
+          'is-invalid': special_price.errors && special_price.touched
+        }"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="ImageURL">Image URL</label>
+      <input
+        [(ngModel)]="product.image"
+        name="ImageURL"
+        type="text"
+        class="form-control"
+        id="ImageURL"
+        placeholder="Image URL"
+        #ImageURL="ngModel"
+        [class]="{
+          'is-invalid': ImageURL.errors && ImageURL.touched
+        }"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="productURL">Product URL</label>
+      <input
+        [(ngModel)]="product.url"
+        name="productURL"
+        type="text"
+        class="form-control"
+        id="productURL"
+        placeholder="Product URL"
+        #productURL="ngModel"
+        [class]="{
+          'is-invalid': productURL.errors && productURL.touched
+        }"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="coupon">Coupon Code</label>
+      <input
+        [(ngModel)]="product.coupon"
+        name="coupon"
+        type="text"
+        class="form-control"
+        id="coupon"
+        placeholder="Coupon"
+        #coupon="ngModel"
+        [class]="{
+          'is-invalid': coupon.errors && coupon.touched
+        }"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="store">Store ID</label>
+      <select
+        name="store"
+        [(ngModel)]="product.store_id"
+        #store="ngModel"
+        class="custom-select"
+      >
+        <option *ngFor="let store of existingStore" [value]="store.id">
+          {{ store.name }}
+        </option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <div class="input-group">
+        <textarea
+          [(ngModel)]="product.description"
+          name="description"
+          class="form-control"
+          #description="ngModel"
+          placeholder="Description"
+          aria-label="With textarea"
+        ></textarea>
+      </div>
+    </div>
+    <div *ngIf="errorMsg" class="form-group">
+      <small class="text-danger is-invalid">{{ errorMsg }}</small>
+    </div>
+    <div *ngIf="successMsg" class="form-group">
+      <small class="text-success is-invalid">{{ successMsg }}</small>
+    </div>
+    <button
+      type="submit"
+      [disabled]="!userForm.form.valid"
+      class="btn btn-outline-danger"
+    >
+      {{ queryProduct ? "Update Store" : "Add Store" }}
+    </button>
+    <br />
+  </form>
+</div>

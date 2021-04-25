@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
+:root {
+  --bg-dark: #131725;
+  --bg-light: #1a1e2c;
+  --theme-purple: #9d63d5;
+  --theme-white: #fff;
+  --theme-card-desc: #b3b6be;
+  --theme-nav: #313341;
+  --header-height: 50px;
+  scroll-padding-top: calc(var(--header-height) +10px);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+}

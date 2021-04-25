@@ -1,0 +1,30 @@
+a {
+  text-decoration: none;
+}
+.box {
+  width: 80%;
+  border-radius: 18px;
+  background-color: var(--bg-light);
+}
+.box i {
+  font-size: xx-large;
+  color: var(--theme-white);
+}
+.box h5 {
+  color: var(--theme-white);
+}
+
+.box:hover {
+  background-color: #1a1e2cc4;
+  cursor: pointer;
+}
+.input-group {
+  min-width: 40%;
+  max-width: 40%;
+  margin: 0 auto;
+  background-color: var(--bg-light);
+}
+.input-group input {
+  border: solid var(--bg-light);
+  background-color: var(--bg-light);
+}

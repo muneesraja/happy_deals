@@ -1,0 +1,32 @@
+<nav class="navbar navbar-dark bg-dark nav-bg">
+  <a class="navbar-brand" href="#">
+    <img
+      src="../../assets/ab81d4ed22664071acd1626954a675de.png"
+      width="100"
+      class="d-inline-block align-top"
+      alt="Logo"
+    />
+  </a>
+  <h2 class="text-white" *ngIf="!authenticated">Admin</h2>
+  <ul class="nav mr-4">
+    <li *ngIf="!authenticated" class="nav-item">
+      <a class="nav-link active" routerLink="/" routerLinkActive="active"
+        ><i class="fas fa-home"></i> Happy Deals</a
+      >
+    </li>
+    <li *ngIf="authenticated" class="nav-item">
+      <a class="nav-link active" routerLink="/admin" routerLinkActive="active"
+        ><i class="fas fa-home"></i> Dashboard</a
+      >
+    </li>
+    <li *ngIf="authenticated" class="nav-item">
+      <a
+        class="nav-link active"
+        routerLink="/admin/login"
+        routerLinkActive="active"
+        (click)="logout()"
+        ><i class="fas fa-sign-out-alt"></i> Logout</a
+      >
+    </li>
+  </ul>
+</nav>

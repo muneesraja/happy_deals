@@ -1,0 +1,14 @@
+<div class="container hot-flat-deals">
+  <div class="row">
+    <div
+      *ngFor="let data of deals"
+      (click)="percentageClick(data.id)"
+      class="col-md-4 mt-4 percentage-circle"
+    >
+      <div>
+        {{ data.percentage }} % <br />
+        OFF
+      </div>
+    </div>
+  </div>
+</div>

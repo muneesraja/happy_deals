@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="search text-center" *ngIf="enableSearch">
+    <p class="text-white">Search Product</p>
+    <div class="input-group rounded-circle">
+      <input (keyup)="searchInput($event)" class="form-control" type="text" />
+    </div>
+  </div>
+  <br />
+  <div class="row justify-content-center mb-4" *ngFor="let deal of deals">
+    <div class="col-md-9 card card-body cards">
+      <div class="row">
+        <div class="col-sm-3 text-center">
+          <img src="{{ deal.image }}" alt="Chair" class="img-thumbnail" />
+        </div>
+        <div class="col-md"></div>
+        <div class="col-md-8 mb-4">
+          <div class="card-body">
+            <h2 class="card-title mb-4">{{ deal.name }}</h2>
+            <p class="card-text card-description">
+              {{ deal.description }}
+            </p>
+            <p class="card-text text-center mr-4">
+              <a
+                target="_blank"
+                href="{{ deal.url }}"
+                class="btn btn-outline-danger rounded-pill"
+                >GRAB DEAL !</a
+              >
+            </p>
+            <h3 class="deal-percentage">
+              {{ calcDiscount(deal.price, deal.special_price) }}% <br />OFF
+            </h3>
+            <div *ngIf="allowAccess" class="row custom-container mr-3">
+              <a (click)="updateProduct(deal)" class="edit">
+                <i class="fas fa-pencil-alt col-6"></i>
+              </a>
+              <a (click)="deleteProduct(deal.id)" class="remove">
+                <i class="far fa-minus-square col-6"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

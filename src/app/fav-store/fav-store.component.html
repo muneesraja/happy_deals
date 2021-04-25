@@ -1,0 +1,22 @@
+<div class="container text-center">
+  <div class="row justify-content-center align-items-center">
+    <div *ngFor="let store of stores" class="col-md-3 col-sm-4 mt-4">
+      <img
+        src="{{ store.image }}"
+        (click)="onStoreClick(store.id)"
+        alt="image"
+      />
+      <div *ngIf="allowAccess">
+        <h2 class="text-white">{{ store.name | uppercase }}</h2>
+        <div class="row justify-content-center custom-container">
+          <a (click)="updateStore(store.id)" class="edit">
+            <i class="fas fa-pencil-alt col-6"></i>
+          </a>
+          <a (click)="deleteStore(store.id)" class="remove">
+            <i class="far fa-minus-square col-6"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

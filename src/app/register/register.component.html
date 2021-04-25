@@ -1,0 +1,105 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <form
+    #userForm="ngForm"
+    (ngSubmit)="onSubmit(userForm)"
+    class="form text-center"
+  >
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input
+        name="email"
+        [(ngModel)]="users.email"
+        class="form-control"
+        id="email"
+        aria-describedby="emailHelp"
+        placeholder="Enter email"
+        required
+        minlength="2"
+        pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}"
+        type="email"
+        #userEmail="ngModel"
+        [class]="{ 'is-invalid': userEmail.errors && userEmail.touched }"
+      />
+      <div class="invalid-feedback">Enter Valid Email</div>
+    </div>
+    <div class="form-group">
+      <label for="username">Name</label>
+      <input
+        name="username"
+        [(ngModel)]="users.name"
+        class="form-control"
+        id="username"
+        placeholder="Enter name"
+        required
+        minlength="2"
+        pattern="^[a-zA-Z0-9]{4,10}$"
+        type="email"
+        #userName="ngModel"
+        [class]="{ 'is-invalid': userName.errors && userName.touched }"
+      />
+      <div class="invalid-feedback">Enter valid name</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        [(ngModel)]="users.password"
+        name="password"
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+        #userPassword="ngModel"
+        minlength="6"
+        required
+        [class]="{
+          'is-invalid': userPassword.errors && userPassword.touched
+        }"
+      />
+      <div class="invalid-feedback">Enter valid password min char 6</div>
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password</label>
+      <input
+        [(ngModel)]="conf_password"
+        name="confirmPassword"
+        type="password"
+        class="form-control"
+        id="confirmPassword"
+        placeholder="Password"
+        #userConfirmPassword="ngModel"
+        (keyup)="checkPass($event)"
+        minlength="6"
+        required
+        [class]="{
+          'is-invalid': confirm_pass && userConfirmPassword.touched
+        }"
+      />
+      <div class="invalid-feedback">Password does not match</div>
+    </div>
+    <div *ngIf="errorMsg" class="form-group">
+      <small class="text-danger is-invalid">{{ errorMsg }}</small>
+    </div>
+    <div *ngIf="regSuccess" class="form-group">
+      <small class="text-success is-invalid">{{ regSuccess }}</small>
+    </div>
+    <button
+      type="submit"
+      [disabled]="!userForm.form.valid || confirm_pass"
+      class="btn btn-outline-danger"
+    >
+      Register
+    </button>
+    <br />
+    or
+    <br />
+    <a
+      class="nav-link"
+      routerLink="/login"
+      routerLinkActive="active"
+      class="btn btn-outline-danger"
+    >
+      Login
+    </a>
+  </form>
+</div>

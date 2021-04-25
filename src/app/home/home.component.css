@@ -1,0 +1,32 @@
+.headline {
+  color: var(--theme-white);
+  background-color: var(--bg-light);
+}
+.explore-headline {
+  height: 1px;
+  width: 100vw;
+  background-color: var(--theme-purple);
+  color: var(--theme-white);
+  margin-top: 5rem;
+}
+
+.explore-headline h2 {
+  background-color: var(--bg-dark);
+  display: inline-block;
+  position: relative;
+  bottom: 1rem;
+  width: 25%;
+}
+
+.explore-more {
+  display: inline-block;
+  color: var(--theme-purple);
+  border: solid 1px var(--theme-purple);
+  padding: 1rem 5rem;
+}
+
+.explore-more:hover,
+:focus {
+  background-color: var(--theme-purple);
+  color: var(--theme-white);
+}

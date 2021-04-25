@@ -1,0 +1,9 @@
+.nav-bg {
+  background-color: var(--bg-dark) !important;
+}
+a {
+  color: var(--theme-nav);
+}
+.logout:hover {
+  cursor: pointer;
+}

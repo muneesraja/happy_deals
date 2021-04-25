@@ -1,0 +1,20 @@
+img {
+  max-width: 150px;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.custom-container {
+  font-size: x-large;
+}
+
+.edit {
+  color: var(--theme-purple);
+  cursor: pointer;
+}
+.remove {
+  color: red;
+  cursor: pointer;
+}

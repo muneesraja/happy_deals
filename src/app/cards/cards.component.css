@@ -1,0 +1,61 @@
+.cards {
+  background-color: var(--bg-light);
+  color: var(--theme-white);
+  border-radius: 25px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.cards:hover {
+  transform: scale(1.001, 1.001);
+}
+
+.img-thumbnail {
+  max-width: 200px;
+}
+
+.btn-outline-danger {
+  color: var(--theme-purple);
+  border: solid 1px var(--theme-purple);
+  padding-left: 3rem;
+}
+
+.btn-outline-danger:hover {
+  background-color: var(--theme-purple);
+  color: var(--theme-white);
+}
+
+.card-description {
+  color: var(--theme-card-desc);
+}
+
+.deal-percentage {
+  color: var(--theme-purple);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.custom-container {
+  position: absolute;
+  right: 0;
+  font-size: xx-large;
+}
+
+.edit {
+  color: var(--theme-purple);
+  cursor: pointer;
+}
+.remove {
+  cursor: pointer;
+  color: red;
+}
+
+.input-group {
+  min-width: 40%;
+  max-width: 40%;
+  margin: 0 auto;
+  background-color: var(--bg-light);
+}
+.input-group input {
+  border: solid var(--bg-light);
+  background-color: var(--bg-light);
+}

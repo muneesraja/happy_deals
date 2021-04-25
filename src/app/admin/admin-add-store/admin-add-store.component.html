@@ -1,0 +1,60 @@
+<app-admin-nav></app-admin-nav>
+<div class="container">
+  <h3 class="text-center">
+    {{ queryStore ? "Edit Store" : "Add Store" }}
+  </h3>
+
+  <form
+    #userForm="ngForm"
+    (ngSubmit)="onSubmit(userForm)"
+    class="form text-center"
+  >
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input
+        [(ngModel)]="store.name"
+        name="name"
+        type="name"
+        class="form-control"
+        id="name"
+        placeholder="name"
+        #name="ngModel"
+        minlength="1"
+        [class]="{
+          'is-invalid': name.errors && name.touched
+        }"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="ImageURL">Image URL</label>
+      <input
+        [(ngModel)]="store.image"
+        name="ImageURL"
+        type="text"
+        class="form-control"
+        id="ImageURL"
+        placeholder="Image URL"
+        #ImageURL="ngModel"
+        [class]="{
+          'is-invalid': ImageURL.errors && ImageURL.touched
+        }"
+        required
+      />
+    </div>
+    <div *ngIf="errorMsg" class="form-group">
+      <small class="text-danger is-invalid">{{ errorMsg }}</small>
+    </div>
+    <div *ngIf="successMsg" class="form-group">
+      <small class="text-success is-invalid">{{ successMsg }}</small>
+    </div>
+    <button
+      type="submit"
+      [disabled]="!userForm.form.valid"
+      class="btn btn-outline-danger"
+    >
+      {{ queryStore ? "Update Store" : "Add Store" }}
+    </button>
+    <br />
+  </form>
+</div>
